@@ -1,11 +1,10 @@
-name: Go CI
+name: CI
 
 on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - name: checkout code
       uses: actions/checkout@v4
@@ -16,7 +15,7 @@ jobs:
     - name: setup
       run: make setup
     - name: build
-      run: make all
+      run: make build
     - name: artifacts
       uses: actions/upload-artifact@v4
       with:
