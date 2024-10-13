@@ -1,0 +1,48 @@
+name: Go CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.23
+    - name: Build
+      run: make all
+    - name: Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: bin
+        path: bin
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.23
+    - name: Test
+      run: make test
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.23
+    - name: Lint
+      uses: golangci/golangci-lint-action@v6
+      with:
+        version: v1.61.0

@@ -2,7 +2,7 @@ module github.com/mrvinkel/bump
 
 go 1.23
 
-toolchain go1.23.1
+toolchain go1.23.2
 
 require (
 	github.com/go-git/go-git/v5 v5.12.0
