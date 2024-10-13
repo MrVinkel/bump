@@ -21,8 +21,8 @@ build: ## Build application for current OS/ARCH
 	@$(eval VERSIONFLAGS=-X '$(VERSION_PACKAGE).BumpVersion=$(VERSION)')
 	@go build -o ./bin/bump -ldflags="$(VERSIONFLAGS)" ./cmd
 
-.PHONY: build-all
-build-all:  ## Build for all OS/ARCHS
+.PHONY: all
+all:  ## Build for all OS/ARCHS
 
 define build-os-arch
 .PHONY: build-$(1)-$(2)
@@ -30,7 +30,7 @@ build-$(1)-$(2):
 	@echo Building bump-$(1)-$(2) $(VERSION)
 	@$(eval VERSIONFLAGS=-X '$(VERSION_PACKAGE).Version=$(VERSION)')
 	@CGO_ENABLED=0 GOOS=$(1) GOARCH=$(2) go build -o ./bin/bump-$(1)-$(2)  -ldflags="-w -s $(VERSIONFLAGS)" ./cmd
-build-all: build-$(1)-$(2)
+all: build-$(1)-$(2)
 endef
 $(foreach o,$(OS), $(foreach a,$(ARCH), $(eval $(call build-os-arch,$(o),$(a)))))
 
