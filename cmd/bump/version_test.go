@@ -1,9 +1,9 @@
 package bump_test
 
 import (
-	"bump/cmd/bump"
 	"testing"
 
+	"github.com/mrvinkel/bump/cmd/bump"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"bump/cmd/bump"
 	"os"
 
+	"github.com/mrvinkel/bump/cmd/bump"
 	"github.com/spf13/cobra"
 )
 
@@ -11,7 +11,7 @@ func main() {
 	root := &cobra.Command{
 		Use:           "bump",
 		Short:         "Bump those versions!",
-		Long:          `Utility for bumping and pushing git tags`,
+		Long:          `Bump those versions! Utility for bumping and pushing git tags`,
 		SilenceUsage:  true,
 		SilenceErrors: true,
 	}
@@ -21,6 +21,7 @@ func main() {
 	bump.DryRun = root.PersistentFlags().BoolP("dry-run", "n", false, "Dry run mode")
 	bump.Prefix = root.PersistentFlags().StringP("prefix", "p", "", "Prefix for the version tag")
 
+	root.AddCommand(bump.BumpVersionCmd())
 	root.AddCommand(bump.PatchCmd())
 	root.AddCommand(bump.MinorCmd())
 	root.AddCommand(bump.MajorCmd())

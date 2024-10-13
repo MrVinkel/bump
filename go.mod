@@ -1,4 +1,4 @@
-module bump
+module github.com/mrvinkel/bump
 
 go 1.23
 

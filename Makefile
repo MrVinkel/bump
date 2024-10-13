@@ -1,12 +1,12 @@
 .DEFAULT_GOAL := build
 SHELL := /bin/bash
 
-ifdef CI_COMMIT_TAG
-VERSION := $(CI_COMMIT_TAG)
+ifdef RELEASE_TAG
+VERSION := $(RELEASE_TAG)
 else
 VERSION := dev
 endif
-VERSION_PACKAGE := goto/cmd/gt
+VERSION_PACKAGE := github.com/mrvinkel/bump/cmd/bump
 ARCH:=amd64 386
 OS:=linux windows
 
@@ -18,7 +18,7 @@ setup: ## Install dependencies
 
 .PHONY: build
 build: ## Build application for current OS/ARCH
-	@$(eval VERSIONFLAGS=-X '$(VERSION_PACKAGE).Version=$(VERSION)')
+	@$(eval VERSIONFLAGS=-X '$(VERSION_PACKAGE).BumpVersion=$(VERSION)')
 	@go build -o ./bin/bump -ldflags="$(VERSIONFLAGS)" ./cmd
 
 .PHONY: build-all
