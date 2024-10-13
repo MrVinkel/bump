@@ -19,6 +19,7 @@ func main() {
 	bump.DebugFlag = root.PersistentFlags().BoolP("debug", "d", false, "Debug mode")
 	bump.QuietFlag = root.PersistentFlags().BoolP("quiet", "q", false, "Quiet - only output errors")
 	bump.DryRun = root.PersistentFlags().BoolP("dry-run", "n", false, "Dry run mode")
+	bump.Prefix = root.PersistentFlags().StringP("prefix", "p", "", "Prefix for the version tag")
 
 	root.AddCommand(bump.PatchCmd())
 	root.AddCommand(bump.MinorCmd())

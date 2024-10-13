@@ -30,6 +30,9 @@ func patch(cmd *cobra.Command, args []string) error {
 	}
 
 	newVersion := version.BumpPatch()
+	if *Prefix != "" {
+		newVersion.Prefix = Prefix
+	}
 	Info("%s -> %s\n", version.String(), newVersion.String())
 
 	if *DryRun {

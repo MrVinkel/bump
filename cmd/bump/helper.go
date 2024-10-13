@@ -17,6 +17,7 @@ func GetLatestVersion(repo *Repo) (*Version, error) {
 		v, err := ParseVersion(t)
 		if err != nil {
 			Error("invalid tag: %s\n", t)
+			Debug("error: %v\n", err)
 			continue
 		}
 		versions = append(versions, *v)
