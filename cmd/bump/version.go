@@ -146,7 +146,7 @@ func (v *Version) String() string {
 	return fmt.Sprintf("%s%d.%d.%d", *v.Prefix, v.Major, v.Minor, v.Patch)
 }
 
-func PrintVersionSlice(s []Version) string {
+func VersionSliceString(s []Version) string {
 	b := strings.Builder{}
 	first := false
 	for _, v := range s {

@@ -10,7 +10,7 @@ func GetLatestVersion(repo *Repo) (*Version, error) {
 		return nil, err
 	}
 
-	Debug("tags: %v\n", PrintSlice(tags))
+	Debug("tags: %v\n", SliceString(tags))
 
 	versions := make([]Version, 0)
 	for _, t := range tags {
@@ -23,13 +23,13 @@ func GetLatestVersion(repo *Repo) (*Version, error) {
 		versions = append(versions, *v)
 	}
 
-	Debug("parsed versions: %s\n", PrintVersionSlice(versions))
+	Debug("parsed versions: %s\n", VersionSliceString(versions))
 
 	sort.Slice(versions, func(i, j int) bool {
 		return Compare(versions[i], versions[j]) > 0
 	})
 
-	Debug("sorted versions: %v\n", PrintVersionSlice(versions))
+	Debug("sorted versions: %v\n", VersionSliceString(versions))
 
 	version := NewVersion(0, 0, 0)
 	if len(versions) > 0 {

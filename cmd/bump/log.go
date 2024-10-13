@@ -22,10 +22,10 @@ func Error(format string, args ...interface{}) {
 	fmt.Fprintf(os.Stderr, format, args...)
 }
 
-func PrintSlice(slice []string) string {
+func SliceString(s []string) string {
 	first := true
 	b := strings.Builder{}
-	for _, s := range slice {
+	for _, s := range s {
 		if first {
 			first = false
 		} else {

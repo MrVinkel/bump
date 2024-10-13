@@ -27,11 +27,11 @@ func (r *Repo) GetTags() ([]string, error) {
 	}
 
 	tags := []string{}
-	tagRefs.ForEach(func(r *plumbing.Reference) error {
+	err = tagRefs.ForEach(func(r *plumbing.Reference) error {
 		tags = append(tags, r.Name().Short())
 		return nil
 	})
-	return tags, nil
+	return tags, err
 }
 
 func (r *Repo) CreateTag(tag string) error {
