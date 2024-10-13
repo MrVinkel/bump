@@ -43,6 +43,9 @@ test: build ## Run tests
 lint: build ## Lint code
 	@golangci-lint run
 
+.PHONY: tidy
+tidy: ## go mod tidy
+	@go mod tidy
 
 .PHONY: clean
 clean: ## Clean bin
