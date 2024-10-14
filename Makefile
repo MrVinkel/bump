@@ -28,7 +28,7 @@ define build-os-arch
 .PHONY: build-$(1)-$(2)
 build-$(1)-$(2):
 	@echo Building bump-$(1)-$(2) $(VERSION)
-	@$(eval VERSIONFLAGS=-X '$(VERSION_PACKAGE).Version=$(VERSION)')
+	@$(eval VERSIONFLAGS=-X '$(VERSION_PACKAGE).BumpVersion=$(VERSION)')
 	@CGO_ENABLED=0 GOOS=$(1) GOARCH=$(2) go build -o ./bin/bump-$(1)-$(2)  -ldflags="-w -s $(VERSIONFLAGS)" ./cmd
 all: build-$(1)-$(2)
 endef

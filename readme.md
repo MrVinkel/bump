@@ -2,7 +2,7 @@
 
 Bump those versions!
 
-Utility for bumping and pushing git tags
+Utility for bumping and pushing git tags.
 
 ## Usage
 
@@ -35,7 +35,7 @@ Use "bump [command] --help" for more information about a command.
 
 Bump requires a SSH agent to be running when using SSH for auth.
 
-Add the following to .bashrc or similare
+Add the following to .bashrc or similar.
 
 ```bash
 # start and export ssh-agent env vars

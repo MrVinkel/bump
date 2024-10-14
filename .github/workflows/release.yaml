@@ -17,6 +17,8 @@ jobs:
     - name: setup
       run: make setup
     - name: build all
+      env:
+        RELEASE_TAG: ${{ github.ref_name }}
       run: make all
     - name: artifacts
       uses: actions/upload-artifact@v4
