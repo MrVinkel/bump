@@ -11,11 +11,11 @@ func PatchCmd() *cobra.Command {
 		Use:     "patch",
 		Aliases: []string{"p"},
 		Short:   "Bump the patch version",
-		RunE:    patch,
+		RunE:    Patch,
 	}
 }
 
-func patch(cmd *cobra.Command, args []string) error {
+func Patch(cmd *cobra.Command, args []string) error {
 	cwd, err := os.Getwd()
 	if err != nil {
 		return err

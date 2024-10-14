@@ -10,6 +10,7 @@ Utility for bumping and pushing git tags
 Bump those versions! Utility for bumping and pushing git tags
 
 Usage:
+  bump [flags]
   bump [command]
 
 Available Commands:
@@ -18,6 +19,7 @@ Available Commands:
   major       Bump the major version
   minor       Bump the minor version
   patch       Bump the patch version
+  version     Print the version of bump
 
 Flags:
   -d, --debug           Debug mode
@@ -27,4 +29,17 @@ Flags:
   -q, --quiet           Quiet - only output errors
 
 Use "bump [command] --help" for more information about a command.
+```
+
+## SSH agent
+
+Bump requires a SSH agent to be running when using SSH for auth.
+
+Add the following to .bashrc or similare
+
+```bash
+# start and export ssh-agent env vars
+eval $(ssh-agent)
+# add private key
+ssh-add ${HOME}/.ssh/id_ed25519
 ```

@@ -14,6 +14,7 @@ func main() {
 		Long:          `Bump those versions! Utility for bumping and pushing git tags`,
 		SilenceUsage:  true,
 		SilenceErrors: true,
+		RunE:          bump.Patch,
 	}
 
 	bump.DebugFlag = root.PersistentFlags().BoolP("debug", "d", false, "Debug mode")
