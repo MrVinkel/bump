@@ -9,7 +9,7 @@ func BumpVersionCmd() *cobra.Command {
 		Use:   "version",
 		Short: "Print the version of bump",
 		Run: func(cmd *cobra.Command, args []string) {
-			cmd.Printf("bump %s\n", BumpVersion)
+			Info("bump %s\n", BumpVersion)
 		},
 	}
 }
