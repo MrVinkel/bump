@@ -1,6 +1,7 @@
 package bump
 
 import (
+	"errors"
 	"sort"
 )
 
@@ -36,4 +37,33 @@ func GetLatestVersion(repo *Repo) (*Version, error) {
 		version = &versions[0]
 	}
 	return version, nil
+}
+
+func CheckRepositoryStatus(repo *Repo) error {
+	if *NoVerify {
+		return nil
+	}
+
+	hasChanages, err := repo.HasChanges()
+	if err != nil {
+		return err
+	}
+	if hasChanages {
+		return errors.New("uncommitted changes")
+	}
+
+	if !*NoFetch {
+		if err = repo.Fetch(); err != nil {
+			return err
+		}
+	}
+
+	synced, err := repo.IsSynced()
+	if err != nil {
+		return err
+	}
+	if !synced {
+		return errors.New("unpushed changes")
+	}
+	return nil
 }

@@ -2,6 +2,7 @@ package bump
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/config"
@@ -56,4 +57,57 @@ func (r *Repo) CreateAndPushTag(tag string) error {
 		return err
 	}
 	return r.PushTag(tag)
+}
+
+func (r *Repo) Fetch() error {
+	err := r.repo.Fetch(&git.FetchOptions{})
+	if err != nil && err != git.NoErrAlreadyUpToDate {
+		return err
+	}
+	return nil
+}
+
+func (r *Repo) HasChanges() (bool, error) {
+	w, err := r.repo.Worktree()
+	if err != nil {
+		return false, err
+	}
+	status, err := w.Status()
+	if err != nil {
+		return false, err
+	}
+	return !status.IsClean(), nil
+}
+
+func (r *Repo) IsSynced() (bool, error) {
+	head, err := r.repo.Head()
+	if err != nil {
+		return false, err
+	}
+	name := strings.TrimPrefix(head.Name().String(), "refs/heads/")
+
+	refs, err := r.repo.References()
+	if err != nil {
+		return false, err
+	}
+	// find remote branch
+	var remote *plumbing.Reference
+	err = refs.ForEach(func(ref *plumbing.Reference) error {
+		if !ref.Name().IsRemote() {
+			return nil
+		}
+		if strings.TrimPrefix(ref.Name().String(), "refs/remotes/origin/") == name {
+			remote = ref
+		}
+		return nil
+	})
+
+	if remote == nil {
+		return false, fmt.Errorf("remote branch for %s not found", name)
+	}
+	if remote.Hash() != head.Hash() {
+		return false, nil
+	}
+
+	return true, err
 }

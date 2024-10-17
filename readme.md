@@ -23,8 +23,10 @@ Available Commands:
 
 Flags:
   -d, --debug           Debug mode
-  -n, --dry-run         Dry run mode
+  -x, --dry-run         Do not create tags, only print what would be done
   -h, --help            help for bump
+  -f, --no-fetch        Do not fetch before verifying repository status
+  -n, --no-verify       Do not check repository status before creating tags
   -p, --prefix string   Prefix for the version tag
   -q, --quiet           Quiet - only output errors
 
