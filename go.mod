@@ -6,7 +6,7 @@ toolchain go1.23.4
 
 require (
 	github.com/go-git/go-git/v5 v5.12.0
-	github.com/spf13/cobra v1.8.0
+	github.com/spf13/cobra v1.8.1
 	github.com/stretchr/testify v1.9.0
 )
 
