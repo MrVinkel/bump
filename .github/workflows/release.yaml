@@ -14,6 +14,12 @@ jobs:
       uses: actions/setup-go@v5
       with:
         go-version: 1.23
+    - name: check version
+      run: |
+        if ! grep $RELEASE_TAG flake.nix; then
+          echo "Version not found in flake.nix"
+          exit 1
+        fi
     - name: setup
       run: make setup
     - name: build all
