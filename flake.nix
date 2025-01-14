@@ -38,12 +38,12 @@
 
           src = ./.;
 
-          subpackage = [ ./cmd ];
+          subpackage = [ ./cmd/bump ];
 
           ldflags = [
             "-s"
             "-w"
-            "-X github.com/mrvinkel/bump/cmd/bump.BumpVersion=${version}"
+            "-X github.com/mrvinkel/bump/cmd/main.BumpVersion=${version}"
           ];
 
           # Disable tests if they require network access or are integration tests
