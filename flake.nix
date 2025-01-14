@@ -43,7 +43,7 @@
           ldflags = [
             "-s"
             "-w"
-            "-X github.com/mrvinkel/bump/cmd/main.BumpVersion=${version}"
+            "-X github.com/mrvinkel/bump/cmd/bump/internal.BumpVersion=${version}"
           ];
 
           # Disable tests if they require network access or are integration tests

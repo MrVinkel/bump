@@ -1,4 +1,4 @@
-package main
+package internal
 
 import (
 	"os"
@@ -6,16 +6,16 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func PatchCmd() *cobra.Command {
+func MajorCmd() *cobra.Command {
 	return &cobra.Command{
-		Use:     "patch",
-		Aliases: []string{"p", "pa"},
-		Short:   "Bump the patch version",
-		RunE:    Patch,
+		Use:     "major",
+		Aliases: []string{"ma"},
+		Short:   "Bump the major version",
+		RunE:    major,
 	}
 }
 
-func Patch(cmd *cobra.Command, args []string) error {
+func major(cmd *cobra.Command, args []string) error {
 	cwd, err := os.Getwd()
 	if err != nil {
 		return err
@@ -36,14 +36,14 @@ func Patch(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
-	newVersion := version.BumpPatch()
+	newVersion := version.BumpMajor()
 	if *Prefix != "" {
 		newVersion.Prefix = Prefix
 	}
 	Info("%s -> %s\n", version.String(), newVersion.String())
 
 	if *DryRun {
-		Info("dry run, will not create tag\n")
+		Info("dry run, not creating tags\n")
 		return nil
 	}
 

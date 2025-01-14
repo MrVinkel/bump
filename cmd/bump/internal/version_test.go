@@ -1,8 +1,9 @@
-package main
+package internal_test
 
 import (
 	"testing"
 
+	"github.com/mrvinkel/bump/cmd/bump/internal"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -11,7 +12,7 @@ func TestParseVersion(t *testing.T) {
 	type test struct {
 		name     string
 		version  string
-		expected *Version
+		expected *internal.Version
 		err      bool
 	}
 
@@ -19,7 +20,7 @@ func TestParseVersion(t *testing.T) {
 		{
 			name:    "valid version",
 			version: "1.2.3",
-			expected: &Version{
+			expected: &internal.Version{
 				Major: 1,
 				Minor: 2,
 				Patch: 3,
@@ -28,7 +29,7 @@ func TestParseVersion(t *testing.T) {
 		{
 			name:    "valid version double digit",
 			version: "56.43.32",
-			expected: &Version{
+			expected: &internal.Version{
 				Major: 56,
 				Minor: 43,
 				Patch: 32,
@@ -37,8 +38,8 @@ func TestParseVersion(t *testing.T) {
 		{
 			name:    "valid version with prefix",
 			version: "v1.2.3",
-			expected: &Version{
-				Prefix: Ptr("v"),
+			expected: &internal.Version{
+				Prefix: internal.Ptr("v"),
 				Major:  1,
 				Minor:  2,
 				Patch:  3,
@@ -47,8 +48,8 @@ func TestParseVersion(t *testing.T) {
 		{
 			name:    "valid version with prefix special character",
 			version: "abc!\"#¤%&/()=?-_,.'¨^1.2.3",
-			expected: &Version{
-				Prefix: Ptr("abc!\"#¤%&/()=?-_,.'¨^"),
+			expected: &internal.Version{
+				Prefix: internal.Ptr("abc!\"#¤%&/()=?-_,.'¨^"),
 				Major:  1,
 				Minor:  2,
 				Patch:  3,
@@ -63,7 +64,7 @@ func TestParseVersion(t *testing.T) {
 
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			actual, err := ParseVersion(tc.version)
+			actual, err := internal.ParseVersion(tc.version)
 			if tc.err {
 				require.Error(t, err)
 			} else {

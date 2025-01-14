@@ -1,4 +1,4 @@
-package main
+package internal
 
 var (
 	DebugFlag *bool

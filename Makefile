@@ -6,7 +6,7 @@ VERSION := $(RELEASE_TAG)
 else
 VERSION := dev
 endif
-VERSION_PACKAGE := github.com/mrvinkel/bump/cmd/bump
+VERSION_PACKAGE := github.com/mrvinkel/bump/cmd/bump/internal
 ARCH:=amd64 386
 OS:=linux windows
 
