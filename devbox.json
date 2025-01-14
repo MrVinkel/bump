@@ -4,15 +4,5 @@
     "go@1.23.4",
     "gotestsum@latest",
     "gocover-cobertura@latest"
-  ],
-  "shell": {
-    "scripts": {
-      "update-hash": [
-        "vendor=$(realpath $(mktemp -d))",
-        "trap \"rm -rf $vendor\" EXIT",
-        "go mod vendor -o $vendor",
-        "nix hash path $vendor >vendor-hash"
-      ]
-    }
-  }
+  ]
 }
