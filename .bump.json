@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/mrvinkel/bump/1.0.0/bump.schema.json",
+  "message": "release ${VERSION}",
+  "prefix": "v",
+  "commit": true,
+  "fetch": true,
+  "verify": true,
+  "debug": false,
+  "shell": "/bin/bash",
+  "preHook": [
+    "echo ${VERSION}"
+  ]
+}
