@@ -29,7 +29,7 @@ define build-os-arch
 build-$(1)-$(2):
 	@echo Building bump-$(1)-$(2) $(VERSION)
 	@$(eval VERSIONFLAGS=-X '$(VERSION_PACKAGE).BumpVersion=$(VERSION)')
-	@CGO_ENABLED=0 GOOS=$(1) GOARCH=$(2) go build -o ./bin/bump-$(1)-$(2) -ldflags="-w -s $(VERSIONFLAGS)" ./cmd
+	@CGO_ENABLED=0 GOOS=$(1) GOARCH=$(2) go build -o ./bin/bump-$(1)-$(2) -ldflags="-w -s $(VERSIONFLAGS)" ./cmd/bump
 all: build-$(1)-$(2)
 endef
 $(foreach o,$(OS), $(foreach a,$(ARCH), $(eval $(call build-os-arch,$(o),$(a)))))
