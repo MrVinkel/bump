@@ -21,7 +21,7 @@
         # Add the commit to the version string for flake builds
         version = "${lastTag}";
 
-        # Run `devbox run update-hash` to update the vendor-hash
+        # Run `make vendor-hash` to update the vendor-hash
         vendorHash =
           if builtins.pathExists ./vendor-hash
           then builtins.readFile ./vendor-hash
