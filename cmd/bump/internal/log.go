@@ -7,13 +7,13 @@ import (
 )
 
 func Debug(format string, args ...interface{}) {
-	if *DebugFlag && !*QuietFlag {
+	if DebugFlag != nil && QuietFlag != nil && *DebugFlag && !*QuietFlag {
 		fmt.Printf(format, args...)
 	}
 }
 
 func Info(format string, args ...interface{}) {
-	if !*QuietFlag {
+	if QuietFlag != nil && !*QuietFlag {
 		fmt.Printf(format, args...)
 	}
 }

@@ -12,10 +12,10 @@ import (
 func TestReadConfigNotExist(t *testing.T) {
 	fs := fstest.MapFS{}
 
-	exist, _, err := internal.ReadConfig(fs)
+	config, err := internal.ReadConfig(fs)
 
 	assert.Nil(t, err)
-	assert.False(t, exist)
+	assert.Nil(t, config)
 }
 
 func TestReadConfig(t *testing.T) {
@@ -25,10 +25,11 @@ func TestReadConfig(t *testing.T) {
 		},
 	}
 
-	exist, config, err := internal.ReadConfig(fs)
+	config, err := internal.ReadConfig(fs)
 
 	assert.Nil(t, err)
-	assert.True(t, exist)
+	assert.NotNil(t, config)
+
 	assert.False(t, *config.Commit)
 
 	// defaults
@@ -36,7 +37,6 @@ func TestReadConfig(t *testing.T) {
 	assert.Equal(t, "v", *config.Prefix)
 	assert.True(t, *config.Fetch)
 	assert.True(t, *config.Verify)
-	assert.False(t, *config.Debug)
-	assert.Equal(t, "/bin/bash", *config.Shell)
+	assert.Equal(t, "/bin/bash -c", *config.Shell)
 	assert.Empty(t, config.PreHook)
 }

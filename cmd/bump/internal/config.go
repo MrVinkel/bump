@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"io/fs"
 
-	_ "embed"
 	"io"
 	"os"
 )
@@ -19,35 +18,34 @@ type Config struct {
 	Prefix  *string  `json:"prefix"`
 	Fetch   *bool    `json:"fetch"`
 	Verify  *bool    `json:"verify"`
-	Debug   *bool    `json:"debug"`
 	Shell   *string  `json:"shell"`
 	PreHook []string `json:"preHook"`
 }
 
-func ReadConfig(fs fs.FS) (bool, *Config, error) {
+func ReadConfig(fs fs.FS) (*Config, error) {
 	file, err := fs.Open(CONFIG_FILE)
 	if err != nil {
 		if os.IsNotExist(err) {
-			return false, nil, nil
+			return nil, nil
 		}
-		return false, nil, err
+		return nil, err
 	}
 	defer file.Close()
 
 	bytes, err := io.ReadAll(file)
 	if err != nil {
-		return false, nil, err
+		return nil, err
 	}
 
 	var config Config
 	err = json.Unmarshal(bytes, &config)
 	if err != nil {
-		return false, nil, err
+		return nil, err
 	}
 
 	setDefaults(&config)
 
-	return true, &config, nil
+	return &config, nil
 }
 
 func setDefaults(config *Config) {
@@ -66,10 +64,7 @@ func setDefaults(config *Config) {
 	if config.Verify == nil {
 		config.Verify = Ptr(true)
 	}
-	if config.Debug == nil {
-		config.Debug = Ptr(false)
-	}
-	if config.Shell == nil {
-		config.Shell = Ptr("/bin/bash")
+	if config.Shell == nil || *config.Shell == "" {
+		config.Shell = Ptr("/bin/bash -c")
 	}
 }
