@@ -105,15 +105,15 @@ func parsePrefix(version string) (*Version, error) {
 	}, nil
 }
 
-func (v *Version) BumpPatch() *Version {
+func BumpPatch(v *Version) *Version {
 	return NewVersionP(v.Prefix, v.Major, v.Minor, v.Patch+1)
 }
 
-func (v *Version) BumpMinor() *Version {
+func BumpMinor(v *Version) *Version {
 	return NewVersionP(v.Prefix, v.Major, v.Minor+1, 0)
 }
 
-func (v *Version) BumpMajor() *Version {
+func BumpMajor(v *Version) *Version {
 	return NewVersionP(v.Prefix, v.Major+1, 0, 0)
 }
 

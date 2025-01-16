@@ -7,6 +7,34 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var (
+	patchCmd = &cobra.Command{
+		Use:     "patch",
+		Aliases: []string{"p", "pa"},
+		Short:   "Bump the patch version",
+		RunE:    internal.Bump(internal.BumpPatch),
+	}
+	minorCmd = &cobra.Command{
+		Use:     "minor",
+		Short:   "Bump the minor version",
+		Aliases: []string{"m", "mi"},
+		RunE:    internal.Bump(internal.BumpMinor),
+	}
+	majorCmd = &cobra.Command{
+		Use:     "major",
+		Short:   "Bump the major version",
+		Aliases: []string{"M", "ma"},
+		RunE:    internal.Bump(internal.BumpMajor),
+	}
+	versionCmd = &cobra.Command{
+		Use:   "version",
+		Short: "Print the version of bump",
+		Run: func(cmd *cobra.Command, args []string) {
+			internal.Info("bump %s\n", internal.BumpVersion)
+		},
+	}
+)
+
 func main() {
 	root := &cobra.Command{
 		Use:           "bump",
@@ -14,7 +42,7 @@ func main() {
 		Long:          `Bump those versions! Utility for bumping and pushing git tags`,
 		SilenceUsage:  true,
 		SilenceErrors: true,
-		RunE:          internal.Patch,
+		RunE:          internal.Bump(internal.BumpPatch),
 	}
 
 	internal.DebugFlag = root.PersistentFlags().BoolP("debug", "d", false, "Debug mode")
@@ -22,12 +50,14 @@ func main() {
 	internal.DryRun = root.PersistentFlags().BoolP("dry-run", "x", false, "Do not create tags, only print what would be done")
 	internal.NoVerify = root.PersistentFlags().BoolP("no-verify", "n", false, "Do not check repository status before creating tags")
 	internal.NoFetch = root.PersistentFlags().BoolP("no-fetch", "f", false, "Do not fetch before verifying repository status")
+	internal.NoCommit = root.PersistentFlags().BoolP("no-commit", "c", false, "Do not commit changes to the repository")
+	internal.SkipPreHook = root.PersistentFlags().BoolP("skip-pre-hook", "s", false, "Skip any configured pre-hook")
 	internal.Prefix = root.PersistentFlags().StringP("prefix", "p", "", "Prefix for the version tag")
 
-	root.AddCommand(internal.BumpVersionCmd())
-	root.AddCommand(internal.PatchCmd())
-	root.AddCommand(internal.MinorCmd())
-	root.AddCommand(internal.MajorCmd())
+	root.AddCommand(versionCmd)
+	root.AddCommand(patchCmd)
+	root.AddCommand(minorCmd)
+	root.AddCommand(majorCmd)
 
 	if err := root.Execute(); err != nil {
 		internal.Error("%v\n", err)

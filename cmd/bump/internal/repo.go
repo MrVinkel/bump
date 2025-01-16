@@ -21,6 +21,14 @@ func NewRepo(path string) (*Repo, error) {
 	return &Repo{repo: repo}, nil
 }
 
+func (r *Repo) GetDir() (string, error) {
+	wt, err := r.repo.Worktree()
+	if err != nil {
+		return "", err
+	}
+	return wt.Filesystem.Root(), nil
+}
+
 func (r *Repo) GetTags() ([]string, error) {
 	tagRefs, err := r.repo.Tags()
 	if err != nil {
@@ -51,12 +59,31 @@ func (r *Repo) PushTag(tag string) error {
 	})
 }
 
-func (r *Repo) CreateAndPushTag(tag string) error {
+func (r *Repo) TagAndPush(tag string) error {
 	err := r.CreateTag(tag)
 	if err != nil {
 		return err
 	}
 	return r.PushTag(tag)
+}
+
+func (r *Repo) CommitAndPush(message string) error {
+	w, err := r.repo.Worktree()
+	if err != nil {
+		return err
+	}
+
+	_, err = w.Add(".")
+	if err != nil {
+		return err
+	}
+
+	_, err = w.Commit(message, &git.CommitOptions{})
+	if err != nil {
+		return err
+	}
+
+	return r.repo.Push(&git.PushOptions{})
 }
 
 func (r *Repo) Fetch() error {
