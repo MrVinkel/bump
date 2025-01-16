@@ -34,9 +34,9 @@ func TestReadConfig(t *testing.T) {
 
 	// defaults
 	assert.Equal(t, "release ${version}", *config.Message)
-	assert.Equal(t, "v", *config.Prefix)
-	assert.True(t, *config.Fetch)
-	assert.True(t, *config.Verify)
+	assert.Nil(t, config.Prefix)
+	assert.Nil(t, config.Fetch)
+	assert.Nil(t, config.Verify)
 	assert.Equal(t, "/bin/bash -c", *config.Shell)
 	assert.Empty(t, config.PreHook)
 }
