@@ -38,9 +38,11 @@ func bump(fn func(*Version) *Version) error {
 		return err
 	}
 
-	err = checkRepositoryStatus(repo)
-	if err != nil {
-		return err
+	if !*NoVerify {
+		err = checkRepositoryStatus(repo)
+		if err != nil {
+			return err
+		}
 	}
 
 	repoDir, err := repo.GetDir()
@@ -139,10 +141,6 @@ func getLatestVersion(repo *Repo) (*Version, error) {
 }
 
 func checkRepositoryStatus(repo *Repo) error {
-	if *NoVerify {
-		return nil
-	}
-
 	hasChanages, err := repo.HasChanges()
 	if err != nil {
 		return err

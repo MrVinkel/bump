@@ -49,20 +49,8 @@ func ReadConfig(fs fs.FS) (*Config, error) {
 }
 
 func setDefaults(config *Config) {
-	if config.Commit == nil {
-		config.Commit = Ptr(true)
-	}
 	if config.Message == nil {
 		config.Message = Ptr("release ${version}")
-	}
-	if config.Prefix == nil {
-		config.Prefix = Ptr("v")
-	}
-	if config.Fetch == nil {
-		config.Fetch = Ptr(true)
-	}
-	if config.Verify == nil {
-		config.Verify = Ptr(true)
 	}
 	if config.Shell == nil || *config.Shell == "" {
 		config.Shell = Ptr("/bin/bash -c")
