@@ -72,7 +72,7 @@ func bump(fn func(*Version) *Version) error {
 		return errors.New("pre-hook failed")
 	}
 
-	err = commitChanges(repo, newVersion, previousVersion, *config.Message)
+	err = commitChanges(config, repo, newVersion, previousVersion)
 	if err != nil {
 		return err
 	}
@@ -183,7 +183,10 @@ func runPreHook(config *Config, newVersion, previousVersion *Version) error {
 	return Run(*config.Shell, config.PreHook, os.Stdout, env)
 }
 
-func commitChanges(repo *Repo, newVersion, previousVersion *Version, message string) error {
+func commitChanges(config *Config, repo *Repo, newVersion, previousVersion *Version) error {
+	if config == nil {
+		return nil
+	}
 	if *NoCommit {
 		return nil
 	}
@@ -197,7 +200,7 @@ func commitChanges(repo *Repo, newVersion, previousVersion *Version, message str
 		"VERSION":          newVersion.String(),
 		"PREVIOUS_VERSION": previousVersion.String(),
 	}
-	message = os.Expand(message, func(s string) string {
+	message := os.Expand(*config.Message, func(s string) string {
 		return vars[s]
 	})
 
