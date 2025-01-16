@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/mrvinkel/bump/1.0.0/bump.schema.json",
+  "$schema": "https://raw.githubusercontent.com/MrVinkel/bump/refs/tags/v0.3.0/bump.schema.json",
   "message": "release ${VERSION}",
   "prefix": "v",
   "commit": true,

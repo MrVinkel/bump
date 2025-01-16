@@ -43,7 +43,7 @@ Example config:
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/mrvinkel/bump/1.0.0/bump.schema.json",
+  "$schema": "$schema": "https://raw.githubusercontent.com/MrVinkel/bump/refs/tags/v0.3.0/bump.schema.json",
   // Default commit message
   "message": "release ${VERSION}",
   // Enforce prefix
