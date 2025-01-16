@@ -5,8 +5,7 @@
   "commit": true,
   "fetch": true,
   "preHook": [
-    "echo test",
-    "echo ${VERSION}",
-    "echo ${PREVIOUS_VERSION}"
+    "sed -i \"s/lastTag = \\\".*\\\";/lastTag = \\\"$VERSION\\\";/g\" flake.nix",
+    "make vendor-hash"
   ]
 }
