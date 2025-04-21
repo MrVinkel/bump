@@ -3,6 +3,6 @@
   "packages": [
     "go@1.24.1",
     "gotestsum@latest",
-    "gocover-cobertura@latest"
+    "gocover-cobertura@1.3.0"
   ]
 }
