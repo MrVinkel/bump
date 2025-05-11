@@ -10,12 +10,6 @@ VERSION_PACKAGE := github.com/mrvinkel/bump/cmd/bump/internal
 ARCH:=amd64 386
 OS:=linux windows
 
-.PHONY: setup
-setup: ## Install dependencies
-	@go install gotest.tools/gotestsum@latest
-	@go install github.com/boumenot/gocover-cobertura@latest
-	@go mod download
-
 .PHONY: build
 build: ## Build application for current OS/ARCH
 	@$(eval VERSIONFLAGS=-X '$(VERSION_PACKAGE).BumpVersion=$(VERSION)')
