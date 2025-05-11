@@ -30,7 +30,7 @@ func ReadConfig(fs fs.FS) (*Config, error) {
 		}
 		return nil, err
 	}
-	defer file.Close()
+	defer file.Close() // nolint:errcheck
 
 	bytes, err := io.ReadAll(file)
 	if err != nil {
