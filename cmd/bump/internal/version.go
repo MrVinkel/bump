@@ -19,13 +19,18 @@ type Version struct {
 
 const (
 	// semver regex from semver.org plus a prefix group
-	semver        = `^(?P<prefix>0|[^0-9]*)(?P<major>0|[1-9]\d*)\.(?P<minor>0|[1-9]\d*)\.(?P<patch>0|[1-9]\d*)(?:-(?P<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?P<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$`
+	semver = `^(?P<prefix>0|[^0-9]*)(?P<major>0|[1-9]\d*)\.(?P<minor>0|[1-9]\d*)\.(?P<patch>0|[1-9]\d*)(?:-(?P<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?P<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$`
+	// match groups
 	prefix        = 1
 	major         = 2
 	minor         = 3
 	patch         = 4
 	prerelease    = 5
 	buildmetadata = 6
+	// compare
+	greator = 1
+	less    = -1
+	equal   = 0
 )
 
 func NewVersion(prefix *string, major, minor, patch int, preRelease []string, build *string) *Version {
@@ -41,15 +46,9 @@ func NewVersion(prefix *string, major, minor, patch int, preRelease []string, bu
 
 func ParseVersion(version string) (*Version, error) {
 	re := regexp.MustCompile(semver)
-	fmt.Printf("test: %v\n", re.SubexpNames())
 	matches := re.FindStringSubmatch(version)
 	if matches == nil {
 		return nil, errors.New("invalid version format")
-	}
-	fmt.Printf("matches: %d\n", len(matches))
-
-	for i, name := range re.SubexpNames() {
-		fmt.Printf("match %d: %s = %s\n", i, name, matches[i])
 	}
 
 	prefixStr := matches[prefix]
@@ -108,31 +107,83 @@ func BumpMajor(v *Version) *Version {
 
 func Compare(v1, v2 Version) int {
 	if v1.Major > v2.Major {
-		return 1
+		return greator
 	} else if v1.Major < v2.Major {
-		return -1
+		return less
 	}
 
 	if v1.Minor > v2.Minor {
-		return 1
+		return greator
 	} else if v1.Minor < v2.Minor {
-		return -1
+		return less
 	}
 
 	if v1.Patch > v2.Patch {
-		return 1
+		return greator
 	} else if v1.Patch < v2.Patch {
-		return -1
+		return less
 	}
 
-	return 0
+	v1Len := len(v1.PreRelease)
+	v2Len := len(v2.PreRelease)
+	if v1Len > v2Len {
+		return less
+	}
+
+	for i := range v2Len {
+		if i >= v1Len {
+			if v1Len == 0 {
+				return greator
+			}
+			return less
+		}
+
+		v1Num, v1Ok := tryParseNumber(v1.PreRelease[i])
+		v2Num, v2Ok := tryParseNumber(v2.PreRelease[i])
+
+		if v1Ok && v2Ok {
+			if v1Num > v2Num {
+				return greator
+			} else if v1Num < v2Num {
+				return less
+			}
+		} else if !v1Ok && v2Ok {
+			return greator
+		} else if v1Ok && !v2Ok {
+			return less
+		} else if v1.PreRelease[i] > v2.PreRelease[i] {
+			return greator
+		} else if v1.PreRelease[i] < v2.PreRelease[i] {
+			return less
+		}
+	}
+
+	return equal
+}
+
+func tryParseNumber(s string) (int, bool) {
+	if s == "" {
+		return 0, false
+	}
+	n, err := strconv.Atoi(s)
+	if err != nil {
+		return 0, false
+	}
+	return n, true
 }
 
 func (v *Version) String() string {
-	if v.Prefix == nil {
-		return fmt.Sprintf("%d.%d.%d", v.Major, v.Minor, v.Patch)
+	version := fmt.Sprintf("%d.%d.%d", v.Major, v.Minor, v.Patch)
+	if v.Prefix != nil {
+		version = fmt.Sprintf("%s%s", *v.Prefix, version)
 	}
-	return fmt.Sprintf("%s%d.%d.%d", *v.Prefix, v.Major, v.Minor, v.Patch)
+	if len(v.PreRelease) > 0 {
+		version = fmt.Sprintf("%s-%s", version, strings.Join(v.PreRelease, "."))
+	}
+	if v.Build != nil {
+		version = fmt.Sprintf("%s+%s", version, *v.Build)
+	}
+	return version
 }
 
 func VersionSliceString(s []Version) string {
