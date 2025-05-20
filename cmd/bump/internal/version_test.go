@@ -27,6 +27,58 @@ func TestParseVersion(t *testing.T) {
 			},
 		},
 		{
+			name:    "valid version prefix",
+			version: "v1.2.3",
+			expected: &internal.Version{
+				Prefix: internal.Ptr("v"),
+				Major:  1,
+				Minor:  2,
+				Patch:  3,
+			},
+		},
+		{
+			name:    "valid version component prefix",
+			version: "some-component-1.2.3",
+			expected: &internal.Version{
+				Prefix: internal.Ptr("some-component-"),
+				Major:  1,
+				Minor:  2,
+				Patch:  3,
+			},
+		},
+		{
+			name:    "valid version pre release",
+			version: "1.2.3-alpha.1",
+			expected: &internal.Version{
+				Major:      1,
+				Minor:      2,
+				Patch:      3,
+				PreRelease: []string{"alpha", "1"},
+			},
+		},
+		{
+			name:    "valid version build metadata",
+			version: "1.2.3+build.123",
+			expected: &internal.Version{
+				Major: 1,
+				Minor: 2,
+				Patch: 3,
+				Build: internal.Ptr("build.123"),
+			},
+		},
+		{
+			name:    "valid version all fields",
+			version: "v1.2.3-beta.2+build.123",
+			expected: &internal.Version{
+				Prefix:     internal.Ptr("v"),
+				Major:      1,
+				Minor:      2,
+				Patch:      3,
+				PreRelease: []string{"beta", "2"},
+				Build:      internal.Ptr("build.123"),
+			},
+		},
+		{
 			name:    "valid version double digit",
 			version: "56.43.32",
 			expected: &internal.Version{
