@@ -133,7 +133,7 @@ func getLatestVersion(repo *Repo) (*Version, error) {
 
 	Debug("sorted versions: %v\n", VersionSliceString(versions))
 
-	version := NewVersion(0, 0, 0)
+	version := NewVersion(nil, 0, 0, 0, []string{}, nil)
 	if len(versions) > 0 {
 		version = &versions[0]
 	}
