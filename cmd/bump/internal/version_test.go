@@ -361,3 +361,102 @@ func TestVersionString(t *testing.T) {
 		})
 	}
 }
+
+func TestBumpPreRelease(t *testing.T) {
+	type test struct {
+		version  *internal.Version
+		expected *internal.Version
+		err      bool
+	}
+
+	tests := []test{
+		// 1.2.3 -> err
+		// 1.2.3-alpha -> 1.2.3-alpha.1
+		// 1.2.3-alpha.1 -> 1.2.3-alpha.2
+		// 1.2.3-alpha.beta -> 1.2.3-alpha.beta.1
+		// 1.2.3-alpha.beta.1 -> 1.2.3-alpha.beta.2
+		{
+			version: &internal.Version{
+				Major: 1,
+				Minor: 2,
+				Patch: 3,
+			},
+			expected: nil,
+			err:      true,
+		},
+		{
+			version: &internal.Version{
+				Major:      1,
+				Minor:      2,
+				Patch:      3,
+				PreRelease: []string{"alpha"},
+			},
+			expected: &internal.Version{
+				Major:      1,
+				Minor:      2,
+				Patch:      3,
+				PreRelease: []string{"alpha", "1"},
+			},
+			err: false,
+		},
+		{
+			version: &internal.Version{
+				Major:      1,
+				Minor:      2,
+				Patch:      3,
+				PreRelease: []string{"alpha", "1"},
+			},
+			expected: &internal.Version{
+				Major:      1,
+				Minor:      2,
+				Patch:      3,
+				PreRelease: []string{"alpha", "2"},
+			},
+			err: false,
+		},
+		{
+			version: &internal.Version{
+				Major:      1,
+				Minor:      2,
+				Patch:      3,
+				PreRelease: []string{"alpha", "beta"},
+			},
+			expected: &internal.Version{
+				Major:      1,
+				Minor:      2,
+				Patch:      3,
+				PreRelease: []string{"alpha", "beta", "1"},
+			},
+			err: false,
+		},
+		{
+			version: &internal.Version{
+				Major:      1,
+				Minor:      2,
+				Patch:      3,
+				PreRelease: []string{"alpha", "beta", "1"},
+			},
+			expected: &internal.Version{
+				Major:      1,
+				Minor:      2,
+				Patch:      3,
+				PreRelease: []string{"alpha", "beta", "2"},
+			},
+			err: false,
+		},
+	}
+
+	for i, tc := range tests {
+		name := fmt.Sprintf("%d: %s is bumped to %s", i, tc.version, tc.expected)
+		t.Run(name, func(t *testing.T) {
+			actual, err := internal.BumpPreRelease(tc.version)
+			if tc.err {
+				require.Error(t, err)
+				assert.Nil(t, actual)
+			} else {
+				require.NoError(t, err)
+				assert.Equal(t, tc.expected.String(), actual.String())
+			}
+		})
+	}
+}

@@ -93,6 +93,18 @@ func ParseVersion(version string) (*Version, error) {
 	}, nil
 }
 
+func (v *Version) Alpha() {
+	v.PreRelease = []string{"alpha", "1"}
+}
+
+func (v *Version) Beta() {
+	v.PreRelease = []string{"beta", "1"}
+}
+
+func (v *Version) RC() {
+	v.PreRelease = []string{"rc", "1"}
+}
+
 func BumpPatch(v *Version) *Version {
 	return NewVersion(v.Prefix, v.Major, v.Minor, v.Patch+1, []string{}, v.Build)
 }
@@ -103,6 +115,33 @@ func BumpMinor(v *Version) *Version {
 
 func BumpMajor(v *Version) *Version {
 	return NewVersion(v.Prefix, v.Major+1, 0, 0, []string{}, v.Build)
+}
+
+func BumpPreRelease(v *Version) (*Version, error) {
+	if len(v.PreRelease) == 0 {
+		return nil, errors.New("no pre-release version to bump")
+	}
+
+	if len(v.PreRelease) == 1 {
+		if num, err := strconv.Atoi(v.PreRelease[0]); err == nil {
+			preRelease := strconv.Itoa(num + 1)
+			// 1.2.3-1 -> 1.2.3-2
+			return NewVersion(v.Prefix, v.Major, v.Minor, v.Patch, []string{preRelease}, v.Build), nil
+		} else {
+			// 1.2.3-alpha -> 1.2.3-alpha.1
+			return NewVersion(v.Prefix, v.Major, v.Minor, v.Patch, []string{v.PreRelease[0], "1"}, v.Build), nil
+		}
+	}
+
+	last := len(v.PreRelease) - 1
+	if num, err := strconv.Atoi(v.PreRelease[last]); err == nil {
+		preRelease := strconv.Itoa(num + 1)
+		// 1.2.3-alpha.1 -> 1.2.3-alpha.2
+		return NewVersion(v.Prefix, v.Major, v.Minor, v.Patch, append(v.PreRelease[:last], preRelease), v.Build), nil
+	} else {
+		// 1.2.3-alpha.beta -> 1.2.3-alpha.beta.1
+		return NewVersion(v.Prefix, v.Major, v.Minor, v.Patch, append(v.PreRelease, "1"), v.Build), nil
+	}
 }
 
 func Compare(v1, v2 Version) int {
