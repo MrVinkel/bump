@@ -19,15 +19,27 @@ var (
 	NoCommit    *bool
 	SkipPreHook *bool
 	Prefix      *string
+	Build       *string
+	Alpha       *bool
+	Beta        *bool
+	RC          *bool
 )
 
 func Bump(fn func(*Version) *Version) func(*cobra.Command, []string) error {
+	return func(cmd *cobra.Command, args []string) error {
+		return bump(func(v *Version) (*Version, error) {
+			return fn(v), nil
+		})
+	}
+}
+
+func BumpE(fn func(*Version) (*Version, error)) func(*cobra.Command, []string) error {
 	return func(cmd *cobra.Command, args []string) error {
 		return bump(fn)
 	}
 }
 
-func bump(fn func(*Version) *Version) error {
+func bump(fn func(*Version) (*Version, error)) error {
 	cwd, err := os.Getwd()
 	if err != nil {
 		return err
@@ -61,9 +73,42 @@ func bump(fn func(*Version) *Version) error {
 		return err
 	}
 
-	newVersion := fn(previousVersion)
-	if *Prefix != "" {
+	newVersion, err := fn(previousVersion)
+	if err != nil {
+		return err
+	}
+
+	// reuse the prefix unless set
+	if Prefix != nil && *Prefix != "" {
 		newVersion.Prefix = Prefix
+	}
+
+	// never reuse build metadata
+	if Build != nil && *Build != "" {
+		newVersion.Build = Build
+	} else {
+		newVersion.Build = nil
+	}
+
+	preCount := 0
+	if Alpha != nil && *Alpha {
+		Debug("bumping to alpha\n")
+		newVersion.Alpha()
+		preCount++
+	}
+	if Beta != nil && *Beta {
+		Debug("bumping to beta\n")
+		newVersion.Beta()
+		preCount++
+	}
+	if RC != nil && *RC {
+		Debug("bumping to rc\n")
+		newVersion.RC()
+		preCount++
+	}
+
+	if preCount > 1 {
+		return errors.New("only one of --alpha, --beta, --rc can be specified")
 	}
 
 	err = runPreHook(config, newVersion, previousVersion)

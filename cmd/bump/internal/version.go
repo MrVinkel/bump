@@ -122,25 +122,28 @@ func BumpPreRelease(v *Version) (*Version, error) {
 		return nil, errors.New("no pre-release version to bump")
 	}
 
-	if len(v.PreRelease) == 1 {
-		if num, err := strconv.Atoi(v.PreRelease[0]); err == nil {
-			preRelease := strconv.Itoa(num + 1)
+	preRelease := make([]string, len(v.PreRelease))
+	copy(preRelease, v.PreRelease)
+
+	if len(preRelease) == 1 {
+		if num, err := strconv.Atoi(preRelease[0]); err == nil {
+			preReleaseNum := strconv.Itoa(num + 1)
 			// 1.2.3-1 -> 1.2.3-2
-			return NewVersion(v.Prefix, v.Major, v.Minor, v.Patch, []string{preRelease}, v.Build), nil
+			return NewVersion(v.Prefix, v.Major, v.Minor, v.Patch, []string{preReleaseNum}, v.Build), nil
 		} else {
 			// 1.2.3-alpha -> 1.2.3-alpha.1
-			return NewVersion(v.Prefix, v.Major, v.Minor, v.Patch, []string{v.PreRelease[0], "1"}, v.Build), nil
+			return NewVersion(v.Prefix, v.Major, v.Minor, v.Patch, []string{preRelease[0], "1"}, v.Build), nil
 		}
 	}
 
-	last := len(v.PreRelease) - 1
-	if num, err := strconv.Atoi(v.PreRelease[last]); err == nil {
-		preRelease := strconv.Itoa(num + 1)
+	last := len(preRelease) - 1
+	if num, err := strconv.Atoi(preRelease[last]); err == nil {
+		preReleaseNum := strconv.Itoa(num + 1)
 		// 1.2.3-alpha.1 -> 1.2.3-alpha.2
-		return NewVersion(v.Prefix, v.Major, v.Minor, v.Patch, append(v.PreRelease[:last], preRelease), v.Build), nil
+		return NewVersion(v.Prefix, v.Major, v.Minor, v.Patch, append(preRelease[:last], preReleaseNum), v.Build), nil
 	} else {
 		// 1.2.3-alpha.beta -> 1.2.3-alpha.beta.1
-		return NewVersion(v.Prefix, v.Major, v.Minor, v.Patch, append(v.PreRelease, "1"), v.Build), nil
+		return NewVersion(v.Prefix, v.Major, v.Minor, v.Patch, append(preRelease, "1"), v.Build), nil
 	}
 }
 

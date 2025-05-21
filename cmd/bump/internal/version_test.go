@@ -370,11 +370,6 @@ func TestBumpPreRelease(t *testing.T) {
 	}
 
 	tests := []test{
-		// 1.2.3 -> err
-		// 1.2.3-alpha -> 1.2.3-alpha.1
-		// 1.2.3-alpha.1 -> 1.2.3-alpha.2
-		// 1.2.3-alpha.beta -> 1.2.3-alpha.beta.1
-		// 1.2.3-alpha.beta.1 -> 1.2.3-alpha.beta.2
 		{
 			version: &internal.Version{
 				Major: 1,
