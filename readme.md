@@ -19,9 +19,13 @@ Available Commands:
   major       Bump the major version
   minor       Bump the minor version
   patch       Bump the patch version
+  prerelease  Bump the pre-release version
   version     Print the version of bump
 
 Flags:
+  -a, --alpha           Bump the pre-release version to alpha.1
+  -b, --beta            Bump the pre-release version to beta.1
+      --build string    Build metadata to prepend to the version tag
   -d, --debug           Debug mode
   -x, --dry-run         Do not create tags, only print what would be done
   -h, --help            help for bump
@@ -30,6 +34,7 @@ Flags:
   -n, --no-verify       Do not check repository status before creating tags
   -p, --prefix string   Prefix for the version tag
   -q, --quiet           Quiet - only output errors
+  -r, --rc              Bump the pre-release version to rc.1
   -s, --skip-pre-hook   Skip any configured pre-hook
 
 Use "bump [command] --help" for more information about a command.
