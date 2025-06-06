@@ -195,6 +195,7 @@ func checkRepositoryStatus(repo *Repo) error {
 	}
 
 	if !*NoFetch {
+		Debug("fetching repository\n")
 		if err = repo.Fetch(); err != nil {
 			return err
 		}
