@@ -3,7 +3,7 @@ module github.com/mrvinkel/bump
 go 1.24.0
 
 require (
-	github.com/go-git/go-git/v5 v5.12.1-0.20250603224102-89fc507cd903
+	github.com/go-git/go-git/v5 v5.16.2
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.10.0
 )
