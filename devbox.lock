@@ -129,31 +129,51 @@
         }
       }
     },
-    "gotestsum@1.12.2": {
-      "last_modified": "2025-05-06T16:34:47Z",
-      "resolved": "github:NixOS/nixpkgs/f90d0af5db814e870b2ad1aebc4e8924a30c53dd#gotestsum",
+    "gotestsum@1.12.3": {
+      "last_modified": "2025-06-20T02:24:11Z",
+      "resolved": "github:NixOS/nixpkgs/076e8c6678d8c54204abcb4b1b14c366835a58bb#gotestsum",
       "source": "devbox-search",
-      "version": "1.12.2",
+      "version": "1.12.3",
       "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/pqm6djsmmkdxi7jm8pf7yz75wzyb5zls-gotestsum-1.12.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/pqm6djsmmkdxi7jm8pf7yz75wzyb5zls-gotestsum-1.12.3"
+        },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/5ix95xc9d3cpr7cc453v4wbsfyv11pac-gotestsum-1.12.2",
+              "path": "/nix/store/8qwq3lkc672sdzxlkyjmd3wdnysnivdy-gotestsum-1.12.3",
               "default": true
             }
           ],
-          "store_path": "/nix/store/5ix95xc9d3cpr7cc453v4wbsfyv11pac-gotestsum-1.12.2"
+          "store_path": "/nix/store/8qwq3lkc672sdzxlkyjmd3wdnysnivdy-gotestsum-1.12.3"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/dvb1nz35abv2syqvyhymj7rk4xww9i5q-gotestsum-1.12.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/dvb1nz35abv2syqvyhymj7rk4xww9i5q-gotestsum-1.12.3"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/zyjjg03xbayzcv9a5g7awrpa0i40zzhx-gotestsum-1.12.2",
+              "path": "/nix/store/m0k0d8bn5qv09wb4fgz7783hm2nw5daq-gotestsum-1.12.3",
               "default": true
             }
           ],
-          "store_path": "/nix/store/zyjjg03xbayzcv9a5g7awrpa0i40zzhx-gotestsum-1.12.2"
+          "store_path": "/nix/store/m0k0d8bn5qv09wb4fgz7783hm2nw5daq-gotestsum-1.12.3"
         }
       }
     }
