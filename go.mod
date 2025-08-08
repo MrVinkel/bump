@@ -1,6 +1,6 @@
 module github.com/mrvinkel/bump
 
-go 1.24.5
+go 1.24.6
 
 require (
 	github.com/go-git/go-git/v5 v5.16.2
