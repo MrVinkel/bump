@@ -4,6 +4,6 @@
     "go@1.25.5",
     "gotestsum@1.13.0",
     "gocover-cobertura@1.4.0",
-    "golangci-lint@2.8.0"
+    "golangci-lint@2.9.0"
   ]
 }
