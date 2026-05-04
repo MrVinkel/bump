@@ -2,8 +2,8 @@
   "lockfile_version": "1",
   "packages": {
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2026-04-23T13:07:47Z",
-      "resolved": "github:NixOS/nixpkgs/01fbdeef22b76df85ea168fbfe1bfd9e63681b30?lastModified=1776949667&narHash=sha256-GMSVw35Q%2B294GlrTUKlx087E31z7KurReQ1YHSKp5iw%3D"
+      "last_modified": "2026-05-03T16:35:46Z",
+      "resolved": "github:NixOS/nixpkgs/73c703c22422b8951895a960959dbbaca7296492?lastModified=1777826146&narHash=sha256-wQ%2FiN5Zp5VIa3ebBibijPnLyKhor%2BxEbDy4d0goa9Zs%3D"
     },
     "go@1.26.1": {
       "last_modified": "2026-03-21T07:29:51Z",
@@ -54,8 +54,8 @@
       }
     },
     "gocover-cobertura@1.4.0": {
-      "last_modified": "2026-03-21T07:29:51Z",
-      "resolved": "github:NixOS/nixpkgs/09061f748ee21f68a089cd5d91ec1859cd93d0be#gocover-cobertura",
+      "last_modified": "2026-04-23T13:07:47Z",
+      "resolved": "github:NixOS/nixpkgs/01fbdeef22b76df85ea168fbfe1bfd9e63681b30#gocover-cobertura",
       "source": "devbox-search",
       "version": "1.4.0",
       "systems": {
@@ -63,47 +63,47 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/ayfd3l5xn8n67dmd81535zs0ggb3ffyi-gocover-cobertura-1.4.0",
+              "path": "/nix/store/djzglz7gjgmz6ps7l15f764v32q8b070-gocover-cobertura-1.4.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/ayfd3l5xn8n67dmd81535zs0ggb3ffyi-gocover-cobertura-1.4.0"
+          "store_path": "/nix/store/djzglz7gjgmz6ps7l15f764v32q8b070-gocover-cobertura-1.4.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/qfp7i7jvxwbmvzic0kfy462f8d17ryxb-gocover-cobertura-1.4.0",
+              "path": "/nix/store/4wszf8x85cdfqykwmsj6qp439r14c7yg-gocover-cobertura-1.4.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/qfp7i7jvxwbmvzic0kfy462f8d17ryxb-gocover-cobertura-1.4.0"
+          "store_path": "/nix/store/4wszf8x85cdfqykwmsj6qp439r14c7yg-gocover-cobertura-1.4.0"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/73jxlfi89g0lpxjp09m3v1pfl9fr8h9z-gocover-cobertura-1.4.0",
+              "path": "/nix/store/l8c01scrrv6zixcv6v9ylkvfh5vww0j1-gocover-cobertura-1.4.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/73jxlfi89g0lpxjp09m3v1pfl9fr8h9z-gocover-cobertura-1.4.0"
+          "store_path": "/nix/store/l8c01scrrv6zixcv6v9ylkvfh5vww0j1-gocover-cobertura-1.4.0"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/wcdnxbr87wprd24b1jj49r4k373i78cf-gocover-cobertura-1.4.0",
+              "path": "/nix/store/8ilzijrpyp320djhsvhn9cggmkjnj5pp-gocover-cobertura-1.4.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/wcdnxbr87wprd24b1jj49r4k373i78cf-gocover-cobertura-1.4.0"
+          "store_path": "/nix/store/8ilzijrpyp320djhsvhn9cggmkjnj5pp-gocover-cobertura-1.4.0"
         }
       }
     },
     "golangci-lint@2.11.4": {
-      "last_modified": "2026-03-27T11:17:38Z",
-      "resolved": "github:NixOS/nixpkgs/832efc09b4caf6b4569fbf9dc01bec3082a00611#golangci-lint",
+      "last_modified": "2026-04-23T13:07:47Z",
+      "resolved": "github:NixOS/nixpkgs/01fbdeef22b76df85ea168fbfe1bfd9e63681b30#golangci-lint",
       "source": "devbox-search",
       "version": "2.11.4",
       "systems": {
@@ -111,47 +111,47 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/zjhq23zqjjlyclylkwvny6s7qzcq56n4-golangci-lint-2.11.4",
+              "path": "/nix/store/iifi3gd1nsyqnniaagadm78ddsf360ys-golangci-lint-2.11.4",
               "default": true
             }
           ],
-          "store_path": "/nix/store/zjhq23zqjjlyclylkwvny6s7qzcq56n4-golangci-lint-2.11.4"
+          "store_path": "/nix/store/iifi3gd1nsyqnniaagadm78ddsf360ys-golangci-lint-2.11.4"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/6rnv5q31z65m0cx0gsclybizgly224r8-golangci-lint-2.11.4",
+              "path": "/nix/store/lnn623f95lg94bkvpk39z32q8xwbrxym-golangci-lint-2.11.4",
               "default": true
             }
           ],
-          "store_path": "/nix/store/6rnv5q31z65m0cx0gsclybizgly224r8-golangci-lint-2.11.4"
+          "store_path": "/nix/store/lnn623f95lg94bkvpk39z32q8xwbrxym-golangci-lint-2.11.4"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/laj0sxwhanwj9nk8hnsqzsj1b141z2bm-golangci-lint-2.11.4",
+              "path": "/nix/store/gzdiczgwmf9bgmzkj86jniw0kiq62rn8-golangci-lint-2.11.4",
               "default": true
             }
           ],
-          "store_path": "/nix/store/laj0sxwhanwj9nk8hnsqzsj1b141z2bm-golangci-lint-2.11.4"
+          "store_path": "/nix/store/gzdiczgwmf9bgmzkj86jniw0kiq62rn8-golangci-lint-2.11.4"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/j4w0z1lgrs4fdds7npk2bnby5ks612cf-golangci-lint-2.11.4",
+              "path": "/nix/store/r49b6973mb9kyn1q102yhcmzcbgmpvh0-golangci-lint-2.11.4",
               "default": true
             }
           ],
-          "store_path": "/nix/store/j4w0z1lgrs4fdds7npk2bnby5ks612cf-golangci-lint-2.11.4"
+          "store_path": "/nix/store/r49b6973mb9kyn1q102yhcmzcbgmpvh0-golangci-lint-2.11.4"
         }
       }
     },
     "gotestsum@1.13.0": {
-      "last_modified": "2026-03-21T07:29:51Z",
-      "resolved": "github:NixOS/nixpkgs/09061f748ee21f68a089cd5d91ec1859cd93d0be#gotestsum",
+      "last_modified": "2026-04-23T13:07:47Z",
+      "resolved": "github:NixOS/nixpkgs/01fbdeef22b76df85ea168fbfe1bfd9e63681b30#gotestsum",
       "source": "devbox-search",
       "version": "1.13.0",
       "systems": {
@@ -159,41 +159,41 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/6sqx1rhhgd2r8cjsn91nnkalgwmzsx7q-gotestsum-1.13.0",
+              "path": "/nix/store/imlayr545ccsvqpxf4xvh78cfl9h5dpw-gotestsum-1.13.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/6sqx1rhhgd2r8cjsn91nnkalgwmzsx7q-gotestsum-1.13.0"
+          "store_path": "/nix/store/imlayr545ccsvqpxf4xvh78cfl9h5dpw-gotestsum-1.13.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/rcs6g4g5j7l1x5ca8bzsgdqpkmx2i3bv-gotestsum-1.13.0",
+              "path": "/nix/store/wb96mq6cn1zr7hr0hrsbf81zbvi3dfhn-gotestsum-1.13.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/rcs6g4g5j7l1x5ca8bzsgdqpkmx2i3bv-gotestsum-1.13.0"
+          "store_path": "/nix/store/wb96mq6cn1zr7hr0hrsbf81zbvi3dfhn-gotestsum-1.13.0"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/gzfrrc3dsbk1i6c2k0xi8gzq5ckbwzd6-gotestsum-1.13.0",
+              "path": "/nix/store/jbikdqlwf7g4jpm3rpl2nw4bvld5yi6a-gotestsum-1.13.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/gzfrrc3dsbk1i6c2k0xi8gzq5ckbwzd6-gotestsum-1.13.0"
+          "store_path": "/nix/store/jbikdqlwf7g4jpm3rpl2nw4bvld5yi6a-gotestsum-1.13.0"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/h6pbj7z3jha1air03j9iacq8ralpq4fs-gotestsum-1.13.0",
+              "path": "/nix/store/gcly6zv0kaknwlakn8bs302rx1yf31ji-gotestsum-1.13.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/h6pbj7z3jha1air03j9iacq8ralpq4fs-gotestsum-1.13.0"
+          "store_path": "/nix/store/gcly6zv0kaknwlakn8bs302rx1yf31ji-gotestsum-1.13.0"
         }
       }
     }
