@@ -2,6 +2,7 @@ package internal
 
 import (
 	"errors"
+	"fmt"
 	"os"
 	"sort"
 
@@ -186,12 +187,12 @@ func getLatestVersion(repo *Repo) (*Version, error) {
 }
 
 func checkRepositoryStatus(repo *Repo) error {
-	hasChanages, err := repo.HasChanges()
+	hasChanages, changes, err := repo.HasChanges()
 	if err != nil {
 		return err
 	}
 	if hasChanages {
-		return errors.New("uncommitted changes")
+		return fmt.Errorf("uncommitted changes:\n%s", changes)
 	}
 
 	if !*NoFetch {

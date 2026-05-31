@@ -94,16 +94,17 @@ func (r *Repo) Fetch() error {
 	return nil
 }
 
-func (r *Repo) HasChanges() (bool, error) {
+func (r *Repo) HasChanges() (bool, string, error) {
 	w, err := r.repo.Worktree()
 	if err != nil {
-		return false, err
+		return false, "", err
 	}
 	status, err := w.Status()
 	if err != nil {
-		return false, err
+		return false, "", err
 	}
-	return !status.IsClean(), nil
+	changes := strings.TrimSuffix(status.String(), "\n")
+	return !status.IsClean(), changes, nil
 }
 
 func (r *Repo) IsSynced() (bool, error) {
