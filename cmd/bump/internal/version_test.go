@@ -31,7 +31,7 @@ func TestParseVersion(t *testing.T) {
 			name:    "valid version prefix",
 			version: "v1.2.3",
 			expected: &internal.Version{
-				Prefix: internal.Ptr("v"),
+				Prefix: new("v"),
 				Major:  1,
 				Minor:  2,
 				Patch:  3,
@@ -41,7 +41,7 @@ func TestParseVersion(t *testing.T) {
 			name:    "valid version component prefix",
 			version: "some-component-1.2.3",
 			expected: &internal.Version{
-				Prefix: internal.Ptr("some-component-"),
+				Prefix: new("some-component-"),
 				Major:  1,
 				Minor:  2,
 				Patch:  3,
@@ -64,19 +64,19 @@ func TestParseVersion(t *testing.T) {
 				Major: 1,
 				Minor: 2,
 				Patch: 3,
-				Build: internal.Ptr("build.123"),
+				Build: new("build.123"),
 			},
 		},
 		{
 			name:    "valid version all fields",
 			version: "v1.2.3-beta.2+build.123",
 			expected: &internal.Version{
-				Prefix:     internal.Ptr("v"),
+				Prefix:     new("v"),
 				Major:      1,
 				Minor:      2,
 				Patch:      3,
 				PreRelease: []string{"beta", "2"},
-				Build:      internal.Ptr("build.123"),
+				Build:      new("build.123"),
 			},
 		},
 		{
@@ -92,7 +92,7 @@ func TestParseVersion(t *testing.T) {
 			name:    "valid version with prefix",
 			version: "v1.2.3",
 			expected: &internal.Version{
-				Prefix: internal.Ptr("v"),
+				Prefix: new("v"),
 				Major:  1,
 				Minor:  2,
 				Patch:  3,
@@ -102,7 +102,7 @@ func TestParseVersion(t *testing.T) {
 			name:    "valid version with prefix special character",
 			version: "abc!\"#¤%&/()=?-_,.'¨^1.2.3",
 			expected: &internal.Version{
-				Prefix: internal.Ptr("abc!\"#¤%&/()=?-_,.'¨^"),
+				Prefix: new("abc!\"#¤%&/()=?-_,.'¨^"),
 				Major:  1,
 				Minor:  2,
 				Patch:  3,
@@ -306,7 +306,7 @@ func TestVersionString(t *testing.T) {
 		},
 		{
 			version: &internal.Version{
-				Prefix: internal.Ptr("v"),
+				Prefix: new("v"),
 				Major:  1,
 				Minor:  2,
 				Patch:  3,
@@ -315,7 +315,7 @@ func TestVersionString(t *testing.T) {
 		},
 		{
 			version: &internal.Version{
-				Prefix:     internal.Ptr("v"),
+				Prefix:     new("v"),
 				Major:      1,
 				Minor:      2,
 				Patch:      3,
@@ -325,12 +325,12 @@ func TestVersionString(t *testing.T) {
 		},
 		{
 			version: &internal.Version{
-				Prefix:     internal.Ptr("v"),
+				Prefix:     new("v"),
 				Major:      1,
 				Minor:      2,
 				Patch:      3,
 				PreRelease: []string{"alpha", "1"},
-				Build:      internal.Ptr("build.123"),
+				Build:      new("build.123"),
 			},
 			expected: "v1.2.3-alpha.1+build.123",
 		},
@@ -339,7 +339,7 @@ func TestVersionString(t *testing.T) {
 				Major: 1,
 				Minor: 2,
 				Patch: 3,
-				Build: internal.Ptr("build.123"),
+				Build: new("build.123"),
 			},
 			expected: "1.2.3+build.123",
 		},

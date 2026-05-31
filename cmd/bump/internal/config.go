@@ -50,9 +50,9 @@ func ReadConfig(fs fs.FS) (*Config, error) {
 
 func setDefaults(config *Config) {
 	if config.Message == nil {
-		config.Message = Ptr("release ${version}")
+		config.Message = new("release ${version}")
 	}
 	if config.Shell == nil || *config.Shell == "" {
-		config.Shell = Ptr("/bin/bash -c")
+		config.Shell = new("/bin/bash -c")
 	}
 }
