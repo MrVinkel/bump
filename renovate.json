@@ -5,6 +5,7 @@
   ],
   "dependencyDashboard": true,
   "automerge": true,
+  
   "packageRules": [
     {
       "matchManagers": [
@@ -17,7 +18,16 @@
         "golang"
       ],
       "rangeStrategy": "bump"
-    }
+    },
+    {
+    "matchManagers": [
+      "gomod"
+    ],
+    "matchPackageNames": [
+      "github.com/go-git/go-git/v5"
+    ],
+    "allowedVersions": "5.14.0"
+  }
   ],
 
   "postUpdateOptions": [
