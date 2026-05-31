@@ -6,19 +6,19 @@ import (
 	"strings"
 )
 
-func Debug(format string, args ...interface{}) {
+func Debug(format string, args ...any) {
 	if DebugFlag != nil && QuietFlag != nil && *DebugFlag && !*QuietFlag {
 		fmt.Printf(format, args...)
 	}
 }
 
-func Info(format string, args ...interface{}) {
+func Info(format string, args ...any) {
 	if QuietFlag != nil && !*QuietFlag {
 		fmt.Printf(format, args...)
 	}
 }
 
-func Error(format string, args ...interface{}) {
+func Error(format string, args ...any) {
 	fmt.Fprintf(os.Stderr, format, args...)
 }
 
