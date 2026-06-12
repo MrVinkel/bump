@@ -53,51 +53,51 @@
         }
       }
     },
-    "gocover-cobertura@1.4.0": {
-      "last_modified": "2026-05-21T08:15:18Z",
-      "resolved": "github:NixOS/nixpkgs/4a29d733e8a7d5b824c3d8c958a946a9867b3eb2#gocover-cobertura",
+    "gocover-cobertura@1.5.0": {
+      "last_modified": "2026-06-05T19:07:58Z",
+      "resolved": "github:NixOS/nixpkgs/891eaa77f0eed53352194677991bd30978f9b0ad#gocover-cobertura",
       "source": "devbox-search",
-      "version": "1.4.0",
+      "version": "1.5.0",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/c2x6k2d5kmn2312wk3y907w5m0rz9xvy-gocover-cobertura-1.4.0",
+              "path": "/nix/store/qqwsxzv9m7lajwnnkl0sj95vr6yvkqvc-gocover-cobertura-1.5.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/c2x6k2d5kmn2312wk3y907w5m0rz9xvy-gocover-cobertura-1.4.0"
+          "store_path": "/nix/store/qqwsxzv9m7lajwnnkl0sj95vr6yvkqvc-gocover-cobertura-1.5.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/z1mi5f7cznbiwpjb6f218i7rmvkrl5yj-gocover-cobertura-1.4.0",
+              "path": "/nix/store/6blifnrl924smxypgahl7s7n7ski1fpm-gocover-cobertura-1.5.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/z1mi5f7cznbiwpjb6f218i7rmvkrl5yj-gocover-cobertura-1.4.0"
+          "store_path": "/nix/store/6blifnrl924smxypgahl7s7n7ski1fpm-gocover-cobertura-1.5.0"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/rlhkjz4wb5jdypy6s621g4jxzpv1r3mk-gocover-cobertura-1.4.0",
+              "path": "/nix/store/i9bn36vf70p590rir9k6hc9r233xk8yr-gocover-cobertura-1.5.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/rlhkjz4wb5jdypy6s621g4jxzpv1r3mk-gocover-cobertura-1.4.0"
+          "store_path": "/nix/store/i9bn36vf70p590rir9k6hc9r233xk8yr-gocover-cobertura-1.5.0"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/dn0zk3xhbg9cxbmk5ji5m1671h6b39i1-gocover-cobertura-1.4.0",
+              "path": "/nix/store/s84a7w3fy5qdr9x6mf4ihblk8dddiwn7-gocover-cobertura-1.5.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/dn0zk3xhbg9cxbmk5ji5m1671h6b39i1-gocover-cobertura-1.4.0"
+          "store_path": "/nix/store/s84a7w3fy5qdr9x6mf4ihblk8dddiwn7-gocover-cobertura-1.5.0"
         }
       }
     },
