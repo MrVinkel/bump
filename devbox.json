@@ -3,7 +3,7 @@
   "packages": [
     "go@1.26.3",
     "gotestsum@1.13.0",
-    "gocover-cobertura@1.4.0",
+    "gocover-cobertura@1.5.0",
     "golangci-lint@2.12.2"
   ]
 }
