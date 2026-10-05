@@ -2,8 +2,8 @@
   "lockfile_version": "1",
   "packages": {
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2026-09-27T11:55:07Z",
-      "resolved": "github:NixOS/nixpkgs/3181085bfd08663b6b9e60bc7a8395c2aaa741bd?lastModified=1790510107&narHash=sha256-EVMNYv7hYDDD9TGVT%2FhIyTYgpiXA8y3m5xIEIxuGNU0%3D"
+      "last_modified": "2026-10-03T07:08:11Z",
+      "resolved": "github:NixOS/nixpkgs/73e728ddb6b7a12d18808f510813a13ee1fe4cce?lastModified=1791011291&narHash=sha256-V6OBJccNKBo%2FktknxlJXZChPoI0NE2lembArBO3CE9k%3D"
     },
     "go@1.27.0": {
       "last_modified": "2026-08-27T07:16:00Z",
@@ -44,8 +44,8 @@
       }
     },
     "gocover-cobertura@1.5.0": {
-      "last_modified": "2026-09-27T03:42:02Z",
-      "resolved": "github:NixOS/nixpkgs/8d5d270900d3fc75655ea2d9d248b234f6631439#gocover-cobertura",
+      "last_modified": "2026-10-02T22:55:44Z",
+      "resolved": "github:NixOS/nixpkgs/55ba7f49ef2962b42cbd126522b7df5f95037679#gocover-cobertura",
       "source": "devbox-search",
       "version": "1.5.0",
       "systems": {
@@ -53,21 +53,21 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/4pxd4yz8d3wf4w43l958h7bp7276wl71-gocover-cobertura-1.5.0",
+              "path": "/nix/store/ad36m16cfx4qk4icn7z73pbp10rz4b8h-gocover-cobertura-1.5.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/4pxd4yz8d3wf4w43l958h7bp7276wl71-gocover-cobertura-1.5.0"
+          "store_path": "/nix/store/ad36m16cfx4qk4icn7z73pbp10rz4b8h-gocover-cobertura-1.5.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/2rfq1gl2azb3yi7xc5b5a5kasl4kh7sg-gocover-cobertura-1.5.0",
+              "path": "/nix/store/mn7h695ymi4zbj8s3fipcravw7aka4ks-gocover-cobertura-1.5.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/2rfq1gl2azb3yi7xc5b5a5kasl4kh7sg-gocover-cobertura-1.5.0"
+          "store_path": "/nix/store/mn7h695ymi4zbj8s3fipcravw7aka4ks-gocover-cobertura-1.5.0"
         },
         "x86_64-darwin": {
           "outputs": [
@@ -83,11 +83,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/w9y0aq42lbdm77xgpkxzjrqh6r62jyjl-gocover-cobertura-1.5.0",
+              "path": "/nix/store/9p1xlqbkvm584bzz3yh24vx7npyk5cbg-gocover-cobertura-1.5.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/w9y0aq42lbdm77xgpkxzjrqh6r62jyjl-gocover-cobertura-1.5.0"
+          "store_path": "/nix/store/9p1xlqbkvm584bzz3yh24vx7npyk5cbg-gocover-cobertura-1.5.0"
         }
       }
     },
@@ -130,8 +130,8 @@
       }
     },
     "gotestsum@1.13.0": {
-      "last_modified": "2026-09-27T03:42:02Z",
-      "resolved": "github:NixOS/nixpkgs/8d5d270900d3fc75655ea2d9d248b234f6631439#gotestsum",
+      "last_modified": "2026-10-02T22:55:44Z",
+      "resolved": "github:NixOS/nixpkgs/55ba7f49ef2962b42cbd126522b7df5f95037679#gotestsum",
       "source": "devbox-search",
       "version": "1.13.0",
       "systems": {
@@ -139,21 +139,21 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/p2pclsmsq46464s1kci9wjd9ny0xq4bh-gotestsum-1.13.0",
+              "path": "/nix/store/n4da38785la34gh84vaxgzp8i76ibbgj-gotestsum-1.13.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/p2pclsmsq46464s1kci9wjd9ny0xq4bh-gotestsum-1.13.0"
+          "store_path": "/nix/store/n4da38785la34gh84vaxgzp8i76ibbgj-gotestsum-1.13.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/h9cz2wwh01jw1vakij2ypvkmyh86ahm5-gotestsum-1.13.0",
+              "path": "/nix/store/dyrgxn977r30k6100zvdafydn6k9n4gw-gotestsum-1.13.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/h9cz2wwh01jw1vakij2ypvkmyh86ahm5-gotestsum-1.13.0"
+          "store_path": "/nix/store/dyrgxn977r30k6100zvdafydn6k9n4gw-gotestsum-1.13.0"
         },
         "x86_64-darwin": {
           "outputs": [
@@ -169,11 +169,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/bp0ngdc92555gw3wlbdvd94r820mjls1-gotestsum-1.13.0",
+              "path": "/nix/store/anv7qbmdvszcgdfyvi90d74alnahaj07-gotestsum-1.13.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/bp0ngdc92555gw3wlbdvd94r820mjls1-gotestsum-1.13.0"
+          "store_path": "/nix/store/anv7qbmdvszcgdfyvi90d74alnahaj07-gotestsum-1.13.0"
         }
       }
     }
