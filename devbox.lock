@@ -2,12 +2,12 @@
   "lockfile_version": "1",
   "packages": {
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2026-11-06T15:06:19Z",
-      "resolved": "github:NixOS/nixpkgs/4fe25e12eb9f4c744966dd3de5a05246cf098601?lastModified=1793977579&narHash=sha256-WrSODdZFVIs%2FHh2NzC0bY%2BROByi0bATg8WfePX8dPj8%3D"
+      "last_modified": "2026-11-14T08:26:23Z",
+      "resolved": "github:NixOS/nixpkgs/5d2b81a7a3be3e2f832879028e4d60abbf58e9a0?lastModified=1794644783&narHash=sha256-3GnIGIy15bMduoS9RnWqKTmsJLWThla42UFtm0S7%2Bus%3D"
     },
     "go@1.27.3": {
-      "last_modified": "2026-10-20T14:23:57Z",
-      "resolved": "github:NixOS/nixpkgs/5adc50831c259f87faeb09ddf930d43597197473#go_1_27",
+      "last_modified": "2026-11-13T07:26:56Z",
+      "resolved": "github:NixOS/nixpkgs/e126e9e73c335158ff8279ac14d5f4afec153716#go",
       "source": "devbox-search",
       "version": "1.27.3",
       "systems": {
@@ -15,37 +15,37 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/s5m10yz53f8778k4mi1irdqzy8iaqri1-go-1.27.3",
+              "path": "/nix/store/0n6nm2j8ymbrnzb9kc5y5sar4d9vp93s-go-1.27.3",
               "default": true
             }
           ],
-          "store_path": "/nix/store/s5m10yz53f8778k4mi1irdqzy8iaqri1-go-1.27.3"
+          "store_path": "/nix/store/0n6nm2j8ymbrnzb9kc5y5sar4d9vp93s-go-1.27.3"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/0940szmkaskjshd3z0gp2m2kfxcnc424-go-1.27.3",
+              "path": "/nix/store/4iwsn73m5dqlvjddjnaqgy3m34kqmicw-go-1.27.3",
               "default": true
             }
           ],
-          "store_path": "/nix/store/0940szmkaskjshd3z0gp2m2kfxcnc424-go-1.27.3"
+          "store_path": "/nix/store/4iwsn73m5dqlvjddjnaqgy3m34kqmicw-go-1.27.3"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/1fng2iqlx5y8rqvhjp9203mymzyny6cz-go-1.27.3",
+              "path": "/nix/store/6pavbn9myjkx0djx70hm7q4rdrv7q2iw-go-1.27.3",
               "default": true
             }
           ],
-          "store_path": "/nix/store/1fng2iqlx5y8rqvhjp9203mymzyny6cz-go-1.27.3"
+          "store_path": "/nix/store/6pavbn9myjkx0djx70hm7q4rdrv7q2iw-go-1.27.3"
         }
       }
     },
     "gocover-cobertura@1.5.0": {
-      "last_modified": "2026-10-24T03:22:33Z",
-      "resolved": "github:NixOS/nixpkgs/674a2028661e550a97400c1cc992b9cca9a668a1#gocover-cobertura",
+      "last_modified": "2026-11-13T07:26:56Z",
+      "resolved": "github:NixOS/nixpkgs/e126e9e73c335158ff8279ac14d5f4afec153716#gocover-cobertura",
       "source": "devbox-search",
       "version": "1.5.0",
       "systems": {
@@ -53,21 +53,21 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/zz35hhyvx7dwgnwy1jw378b3h5hfhhdg-gocover-cobertura-1.5.0",
+              "path": "/nix/store/631cvy0shskv88mvx60656smnglz96lw-gocover-cobertura-1.5.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/zz35hhyvx7dwgnwy1jw378b3h5hfhhdg-gocover-cobertura-1.5.0"
+          "store_path": "/nix/store/631cvy0shskv88mvx60656smnglz96lw-gocover-cobertura-1.5.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/g8q9ksh96y4yigjgxls8h986xzzdqc6q-gocover-cobertura-1.5.0",
+              "path": "/nix/store/ld3v81j88zlz5ns88f1bxxzp6nkkbp6g-gocover-cobertura-1.5.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/g8q9ksh96y4yigjgxls8h986xzzdqc6q-gocover-cobertura-1.5.0"
+          "store_path": "/nix/store/ld3v81j88zlz5ns88f1bxxzp6nkkbp6g-gocover-cobertura-1.5.0"
         },
         "x86_64-darwin": {
           "outputs": [
@@ -83,17 +83,17 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/nxvb30q9rn82vznwvysdmvrb9r8alwc6-gocover-cobertura-1.5.0",
+              "path": "/nix/store/bj5424dbwpnl6rxqnnz4w1dlv3fafc15-gocover-cobertura-1.5.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/nxvb30q9rn82vznwvysdmvrb9r8alwc6-gocover-cobertura-1.5.0"
+          "store_path": "/nix/store/bj5424dbwpnl6rxqnnz4w1dlv3fafc15-gocover-cobertura-1.5.0"
         }
       }
     },
     "golangci-lint@2.15.0": {
-      "last_modified": "2026-11-01T00:57:29Z",
-      "resolved": "github:NixOS/nixpkgs/d357a2b54f0b6dc4aeb4e993190a52cf151b6f24#golangci-lint",
+      "last_modified": "2026-11-13T07:26:56Z",
+      "resolved": "github:NixOS/nixpkgs/e126e9e73c335158ff8279ac14d5f4afec153716#golangci-lint",
       "source": "devbox-search",
       "version": "2.15.0",
       "systems": {
@@ -101,37 +101,37 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/858pfyzissfrlcspn1whpcvlcyhcdrn3-golangci-lint-2.15.0",
+              "path": "/nix/store/04ifimpvc8yaqilwsvmkfkw71hbdb4zk-golangci-lint-2.15.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/858pfyzissfrlcspn1whpcvlcyhcdrn3-golangci-lint-2.15.0"
+          "store_path": "/nix/store/04ifimpvc8yaqilwsvmkfkw71hbdb4zk-golangci-lint-2.15.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/6jczr694l11llm2szd2arikq3b4mg5lp-golangci-lint-2.15.0",
+              "path": "/nix/store/1c8p25q23jv6nyplk5wrgym51jn94c2k-golangci-lint-2.15.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/6jczr694l11llm2szd2arikq3b4mg5lp-golangci-lint-2.15.0"
+          "store_path": "/nix/store/1c8p25q23jv6nyplk5wrgym51jn94c2k-golangci-lint-2.15.0"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/4ifdzaja36bkb7x7za9lz9z7nckv80wj-golangci-lint-2.15.0",
+              "path": "/nix/store/0hbvnysb4w8ikxwb6fcaq4zypzlg9zgi-golangci-lint-2.15.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/4ifdzaja36bkb7x7za9lz9z7nckv80wj-golangci-lint-2.15.0"
+          "store_path": "/nix/store/0hbvnysb4w8ikxwb6fcaq4zypzlg9zgi-golangci-lint-2.15.0"
         }
       }
     },
     "gotestsum@1.13.0": {
-      "last_modified": "2026-10-24T03:22:33Z",
-      "resolved": "github:NixOS/nixpkgs/674a2028661e550a97400c1cc992b9cca9a668a1#gotestsum",
+      "last_modified": "2026-11-13T07:26:56Z",
+      "resolved": "github:NixOS/nixpkgs/e126e9e73c335158ff8279ac14d5f4afec153716#gotestsum",
       "source": "devbox-search",
       "version": "1.13.0",
       "systems": {
@@ -139,21 +139,21 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/kyckwpfpljwldyav8kmpbpjcriw750m3-gotestsum-1.13.0",
+              "path": "/nix/store/mxn491bic03m83mprdp4r5b6szdwlxdn-gotestsum-1.13.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/kyckwpfpljwldyav8kmpbpjcriw750m3-gotestsum-1.13.0"
+          "store_path": "/nix/store/mxn491bic03m83mprdp4r5b6szdwlxdn-gotestsum-1.13.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/s0355g59a4ca8i2jpxavza5air9bkbsg-gotestsum-1.13.0",
+              "path": "/nix/store/ajwll6mk4m9p9b911hnqqcvri02b7gwc-gotestsum-1.13.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/s0355g59a4ca8i2jpxavza5air9bkbsg-gotestsum-1.13.0"
+          "store_path": "/nix/store/ajwll6mk4m9p9b911hnqqcvri02b7gwc-gotestsum-1.13.0"
         },
         "x86_64-darwin": {
           "outputs": [
@@ -169,11 +169,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/9kmvjjx92rdchrv2irw1z2j48dpl3fkv-gotestsum-1.13.0",
+              "path": "/nix/store/j05gfb6xnk6ln22kxcax7c7ldgqwix4g-gotestsum-1.13.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/9kmvjjx92rdchrv2irw1z2j48dpl3fkv-gotestsum-1.13.0"
+          "store_path": "/nix/store/j05gfb6xnk6ln22kxcax7c7ldgqwix4g-gotestsum-1.13.0"
         }
       }
     }
